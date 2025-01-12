@@ -1,33 +1,35 @@
 # temp_conversion_tool.py
 
-# 1. Define global conversion factors
-FAHRENHEIT_TO_CELSIUS_FACTOR = 5.0 / 9.0
-CELSIUS_TO_FAHRENHEIT_FACTOR = 9.0 / 5.0
+# Define global conversion factors (exactly as required)
+FAHRENHEIT_TO_CELSIUS_FACTOR = 5/9
+CELSIUS_TO_FAHRENHEIT_FACTOR = 9/5
 
 def convert_to_celsius(fahrenheit):
     """
-    Converts a Fahrenheit temperature to Celsius,
+    Converts Fahrenheit temperature to Celsius,
     using the FAHRENHEIT_TO_CELSIUS_FACTOR global variable.
     """
-    # (Fahrenheit - 32) * (5/9)
     celsius = (fahrenheit - 32) * FAHRENHEIT_TO_CELSIUS_FACTOR
     return celsius
 
 def convert_to_fahrenheit(celsius):
     """
-    Converts a Celsius temperature to Fahrenheit,
+    Converts Celsius temperature to Fahrenheit,
     using the CELSIUS_TO_FAHRENHEIT_FACTOR global variable.
     """
-    # (Celsius * (9/5)) + 32
     fahrenheit = (celsius * CELSIUS_TO_FAHRENHEIT_FACTOR) + 32
     return fahrenheit
 
 def main():
     try:
         # Prompt the user for a temperature
-        user_temp_input = input("Enter the temperature to convert: ")
-        # Validate user input is numeric
-        if not user_temp_input.replace('.', '', 1).isdigit() and not (user_temp_input.startswith('-') and user_temp_input[1:].replace('.', '', 1).isdigit()):
+        user_temp_input = input("Enter the temperature to convert: ").strip()
+        
+        # Validate user input is numeric (handles negatives and decimals)
+        if not user_temp_input.replace('.', '', 1).isdigit() and not (
+            user_temp_input.startswith('-')
+            and user_temp_input[1:].replace('.', '', 1).isdigit()
+        ):
             raise ValueError("Invalid temperature. Please enter a numeric value.")
         
         temperature = float(user_temp_input)
