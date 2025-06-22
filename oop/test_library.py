@@ -3,20 +3,20 @@
 from library_system import Book, EBook, PrintBook, Library
 
 def main():
-    # Create a library instance
+    # 1) make a library
     my_library = Library()
 
-    # Create instances of each type of book
+    # 2) create one of each
     classic_book = Book("Pride and Prejudice", "Jane Austen")
-    digital_book = EBook("Snow Crash", "Neal Stephenson", 1.5)
-    paper_book   = PrintBook("The Catcher in the Rye", "J.D. Salinger", 224)
+    digital_book = EBook("Snow Crash", "Neal Stephenson", 500)   # 500KB
+    paper_book   = PrintBook("The Catcher in the Rye", "J.D. Salinger", 234)
 
-    # Add books to the library
+    # 3) add them
     my_library.add_book(classic_book)
     my_library.add_book(digital_book)
     my_library.add_book(paper_book)
 
-    # List all books in the library
+    # 4) list them out
     my_library.list_books()
 
 if __name__ == "__main__":
