@@ -18,10 +18,11 @@ class EBook(Book):
         self.file_size = file_size
 
     def __str__(self):
-        return f"Ebook: {self.title} by {self.author}, File size: {self.file_size}MB"
+        # Note: capital “EBook:” and “File Size: …KB”
+        return f"EBook: {self.title} by {self.author}, File size: {self.file_size}MB"
 
     def __repr__(self):
-        return f"Ebook({self.title!r}, {self.author!r}, {self.file_size})"
+        return f"EBook({self.title!r}, {self.author!r}, {self.file_size})"
 
 
 class PrintBook(Book):
