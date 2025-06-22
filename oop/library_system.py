@@ -2,7 +2,7 @@
 
 class Book:
     def __init__(self, title, author):
-        self.title = title
+        self.title  = title
         self.author = author
 
     def __str__(self):
@@ -18,8 +18,7 @@ class EBook(Book):
         self.file_size = file_size
 
     def __str__(self):
-        # Note: capital “EBook:” and “File Size: …KB”
-        return f"EBook: {self.title} by {self.author}, File size: {self.file_size}MB"
+        return f"EBook: {self.title} by {self.author}, File Size: {self.file_size}KB"
 
     def __repr__(self):
         return f"EBook({self.title!r}, {self.author!r}, {self.file_size})"
@@ -47,3 +46,4 @@ class Library:
     def list_books(self):
         for book in self.books:
             print(book)
+
